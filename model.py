@@ -7,8 +7,8 @@ from dataclasses import dataclass, field
  a counter object
  a book object 
  
- module definitions allow to easily import methods and single instantiation of class objects in more than one
- file or module without unnecessary duplication of code. '''
+ module definitions allow to easily import methods and single instantiation of a book object and id generation
+ in multiple modules without unnecessary duplication of code. '''
 
 
 def gen_id():
