@@ -13,6 +13,7 @@ class BookStore:
             """ Adds book to store. Should error if a book with exact author and title is already in the store.
              :param book the book to add"""
             # TODO raise BookError if book with same author and title is already in list. Don't add the new book. Use the exact_match function
+
             self._books.append(book)
 
 
@@ -28,16 +29,17 @@ class BookStore:
             """ Clears the book list """
             self._books = []
 
-
         def set_book_read(self, id, read):
             """ Changes whether a book has been read or not
             :param id the ID of the book to change the read status
             :param read True for book has been read, False otherwise
             """
             book = self.get_book_by_id(id)
-            book.read = read
             # TODO raise BookError if book not found. Hint: get_book_by_id returns None if book is not found.
-
+            if book is None:
+                raise BookError(book)
+            else:
+                book.read = read
 
         def exact_match(self, search_book):
             """ Searches bookstore for a book with exact same title and author. Not case sensitive.
@@ -106,7 +108,6 @@ class BookStore:
 
     def __setattr__(self, name, value):
         return setattr(self.instance, name, value)
-
 
 
 class BookError(Exception):
