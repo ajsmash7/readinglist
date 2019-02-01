@@ -2,6 +2,14 @@ from dataclasses import dataclass, field
 
 # TODO add a docstring for this module.
 
+''' This Module contains the object class models to create an instance of:
+ 
+ a counter object
+ a book object 
+ 
+ module definitions allow to easily import methods and single instantiation of class objects in more than one
+ file or module without unnecessary duplication of code. '''
+
 
 def gen_id():
     return Counter.get_counter()
