@@ -62,16 +62,19 @@ def search_book():
 
 
 def change_read():
+    # use try - catch blocks to display the error message if book not found
+    try:
+        book_id = ui.get_book_id()
+        new_read = ui.get_read_value()
+        store.set_book_read(book_id, new_read)
+    except Exception as not_found:
+        print('Book Does Not Exist in the List!', not_found)
 
-    book_id = ui.get_book_id()
-    new_read = ui.get_read_value()
-    store.set_book_read(book_id, new_read)
     # TODO show error message if book's ID is not found.
 
 
 def quit_program():
     ui.message('Thanks and bye!')
-
 
 
 if __name__ == '__main__':
