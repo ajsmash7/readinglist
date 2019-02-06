@@ -7,8 +7,7 @@ from dataclasses import dataclass, field
  a counter object
  a book object 
  
- module definitions allow to easily import methods and single instantiation of a book object and id generation
- in multiple modules without unnecessary duplication of code. '''
+This module defines the data classes and their class methods as a model for use in book list application. '''
 
 
 def gen_id():
