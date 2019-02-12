@@ -2,6 +2,13 @@ from dataclasses import dataclass, field
 
 # TODO add a docstring for this module.
 
+''' This Module contains the object class models to create an instance of:
+ 
+ a counter object
+ a book object 
+ 
+This module defines the data classes and their class methods as a model for use in book list application. '''
+
 
 def gen_id():
     return Counter.get_counter()
