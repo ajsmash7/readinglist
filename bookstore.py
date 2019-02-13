@@ -14,7 +14,11 @@ class BookStore:
              :param book the book to add"""
             # TODO raise BookError if book with same author and title is already in list. Don't add the new book. Use the exact_match function
 
-            self._books.append(book)
+            if self.exact_match(book) > 0:
+                raise BookError('This book already exists in the list!')
+            else:
+                self._books.append(book)
+
 
 
         def delete_book(self, book):
