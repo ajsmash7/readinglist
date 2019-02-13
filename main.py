@@ -29,6 +29,7 @@ def create_menu():
     menu.add_option('4', 'Show Read Books', show_read_books)
     menu.add_option('5', 'Show All Books', show_all_books)
     menu.add_option('6', 'Change Book Read Status', change_read)
+    menu.add_option('7', 'Delete a Book', delete_book)
     menu.add_option(QUIT, 'Quit', quit_program)
 
     return menu
@@ -62,16 +63,29 @@ def search_book():
 
 
 def change_read():
+    # use try - catch blocks to display the error message if book not found
+    try:
+        book_id = ui.get_book_id()
+        new_read = ui.get_read_value()
+        store.set_book_read(book_id, new_read)
+    except Exception as not_found:
+        print('Book Does Not Exist in the List!', not_found)
 
-    book_id = ui.get_book_id()
-    new_read = ui.get_read_value()
-    store.set_book_read(book_id, new_read)
     # TODO show error message if book's ID is not found.
+
+def delete_book():
+
+    delete_id = ui.get_book_id()
+
+    try:
+        store.delete_book(delete_id)
+    except Exception as does_not_exist:
+        print('This ID does not exist in the list!', does_not_exist)
+
 
 
 def quit_program():
     ui.message('Thanks and bye!')
-
 
 
 if __name__ == '__main__':
